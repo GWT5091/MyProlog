@@ -1,0 +1,106 @@
+ parent(X,Y)かつancestor(Z,Y)ならばancestor(X,Y)である
+ 
+ ancestorの条件であるparent関係を調べるとpatしかいないのでpatが出力される
+ さらにpatのparent関係を見ていくとbobが出てくるがparent(bob, jim)ではないため
+ pamの関係を調べていくと条件を満たすので出力される
+ そうした関係を調べていくとtom,bobの順に出力される
+ 詳細
+    Call: (7) ancestor(_G2663, jim) ? creep
+   Call: (8) parent(_G2663, jim) ? creep
+   Exit: (8) parent(pat, jim) ? creep
+   Exit: (7) ancestor(pat, jim) ? creep
+X = pat ;
+   Redo: (7) ancestor(_G2663, jim) ? creep
+   Call: (8) parent(_G2663, _G2775) ? creep
+   Exit: (8) parent(pam, bob) ? creep
+   Call: (8) ancestor(bob, jim) ? creep
+   Call: (9) parent(bob, jim) ? creep
+   Fail: (9) parent(bob, jim) ? creep
+   Redo: (8) ancestor(bob, jim) ? creep
+   Call: (9) parent(bob, _G2775) ? creep
+   Exit: (9) parent(bob, pat) ? creep
+   Call: (9) ancestor(pat, jim) ? creep
+   Call: (10) parent(pat, jim) ? creep
+   Exit: (10) parent(pat, jim) ? creep
+   Exit: (9) ancestor(pat, jim) ? creep
+   Exit: (8) ancestor(bob, jim) ? creep
+   Exit: (7) ancestor(pam, jim) ? creep
+X = pam ;
+   Redo: (9) ancestor(pat, jim) ? creep
+   Call: (10) parent(pat, _G2775) ? creep
+   Exit: (10) parent(pat, jim) ? creep
+   Call: (10) ancestor(jim, jim) ? creep
+   Call: (11) parent(jim, jim) ? creep
+   Fail: (11) parent(jim, jim) ? creep
+   Redo: (10) ancestor(jim, jim) ? creep
+   Call: (11) parent(jim, _G2775) ? creep
+   Fail: (11) parent(jim, _G2775) ? creep
+   Fail: (10) ancestor(jim, jim) ? creep
+   Fail: (9) ancestor(pat, jim) ? creep
+   Fail: (8) ancestor(bob, jim) ? creep
+   Redo: (8) parent(_G2663, _G2775) ? creep
+   Exit: (8) parent(tom, bob) ? creep
+   Call: (8) ancestor(bob, jim) ? creep
+   Call: (9) parent(bob, jim) ? creep
+   Fail: (9) parent(bob, jim) ? creep
+   Redo: (8) ancestor(bob, jim) ? creep
+   Call: (9) parent(bob, _G2775) ? creep
+   Exit: (9) parent(bob, pat) ? creep
+   Call: (9) ancestor(pat, jim) ? creep
+   Call: (10) parent(pat, jim) ? creep
+   Exit: (10) parent(pat, jim) ? creep
+   Exit: (9) ancestor(pat, jim) ? creep
+   Exit: (8) ancestor(bob, jim) ? creep
+   Exit: (7) ancestor(tom, jim) ? creep
+X = tom ;
+   Redo: (9) ancestor(pat, jim) ? creep
+   Call: (10) parent(pat, _G2775) ? creep
+   Exit: (10) parent(pat, jim) ? creep
+   Call: (10) ancestor(jim, jim) ? creep
+   Call: (11) parent(jim, jim) ? creep
+   Fail: (11) parent(jim, jim) ? creep
+   Redo: (10) ancestor(jim, jim) ? creep
+   Call: (11) parent(jim, _G2775) ? creep
+   Fail: (11) parent(jim, _G2775) ? creep
+   Fail: (10) ancestor(jim, jim) ? creep
+   Fail: (9) ancestor(pat, jim) ? creep
+   Fail: (8) ancestor(bob, jim) ? creep
+   Redo: (8) parent(_G2663, _G2775) ? creep
+   Exit: (8) parent(tom, liz) ? creep
+   Call: (8) ancestor(liz, jim) ? creep
+   Call: (9) parent(liz, jim) ? creep
+   Fail: (9) parent(liz, jim) ? creep
+   Redo: (8) ancestor(liz, jim) ? creep
+   Call: (9) parent(liz, _G2775) ? creep
+   Fail: (9) parent(liz, _G2775) ? creep
+   Fail: (8) ancestor(liz, jim) ? creep
+   Redo: (8) parent(_G2663, _G2775) ? creep
+   Exit: (8) parent(bob, pat) ? creep
+   Call: (8) ancestor(pat, jim) ? creep
+   Call: (9) parent(pat, jim) ? creep
+   Exit: (9) parent(pat, jim) ? creep
+   Exit: (8) ancestor(pat, jim) ? creep
+   Exit: (7) ancestor(bob, jim) ? creep
+X = bob ;
+   Redo: (8) ancestor(pat, jim) ? creep
+   Call: (9) parent(pat, _G2775) ? creep
+   Exit: (9) parent(pat, jim) ? creep
+   Call: (9) ancestor(jim, jim) ? creep
+   Call: (10) parent(jim, jim) ? creep
+   Fail: (10) parent(jim, jim) ? creep
+   Redo: (9) ancestor(jim, jim) ? creep
+   Call: (10) parent(jim, _G2775) ? creep
+   Fail: (10) parent(jim, _G2775) ? creep
+   Fail: (9) ancestor(jim, jim) ? creep
+   Fail: (8) ancestor(pat, jim) ? creep
+   Redo: (8) parent(_G2663, _G2775) ? creep
+   Exit: (8) parent(pat, jim) ? creep
+   Call: (8) ancestor(jim, jim) ? creep
+   Call: (9) parent(jim, jim) ? creep
+   Fail: (9) parent(jim, jim) ? creep
+   Redo: (8) ancestor(jim, jim) ? creep
+   Call: (9) parent(jim, _G2775) ? creep
+   Fail: (9) parent(jim, _G2775) ? creep
+   Fail: (8) ancestor(jim, jim) ? creep
+   Fail: (7) ancestor(_G2663, jim) ? creep
+false.

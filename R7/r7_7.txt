@@ -1,0 +1,20 @@
+% r7 練習問題1の論理的意味と動作についてレポート
+
+has_duplication([X|L]):- member(X,L).
+has_duplication([X|L]):- has_duplication(L).
+
+（i）論理的意味
+  第1節：X が L のmember(つまりXはリストLに属する)ならばtrueである．
+  第2節：(第１節がfalseのとき)テールのリストがあるならばhas_duplicationである．
+  
+（ii）動作<has_duplication([a,b,a])>
+
+ has_duplication([a,b,a])を実行すると，ボディゴールであるmember(X,L)が呼ばれる
+ ここでヘッドであるaとXが単一化され、テールのリストがLと単一化される
+ リストLにXが属するか調べる(実行)
+ 属しているのでこのゴールが成功する．
+ したがってすべてのボディゴールが成功する
+
+(iii)考察・感想
+特に問題なし
+ほぼほぼリストの復習だった

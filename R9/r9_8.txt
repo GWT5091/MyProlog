@@ -1,0 +1,16 @@
+レポート
+
+picnic1
+実行：picnic1を実行するとsundayが出力される
+理由：holidayのデータベースを見に行くと”saturday”が見つかるのでDayと単一化する
+      しかしsunnyのデータベースを見ると”saturday”と書かれたものがないのでfailする
+      バックトラックして今度はholidayのデータベースの”sunday”が見つかるのでDayと単一化する
+      sunny(sunday)があるので成功する
+      したがってpicnic1を実行するとsundayが出力される
+      
+picnic2
+実行：picnic2を実行するとfalseが出力される
+理由：holidayのデータベースを見に行くと”saturday”が見つかるのでDayと単一化する
+      しかしsunnyのデータベースを見ると”saturday”と書かれたものがないのでfailする
+      ”！”があるのでバックトラックせず終了する
+      falseが出力される
