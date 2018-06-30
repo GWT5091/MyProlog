@@ -1,0 +1,33 @@
+任意のXがZの父親でありかつZはYの親であるならばXはYのおじである
+
+実行すると
+X = tom,
+Y = pat ;
+X = bob,
+Y = jim ;
+false.
+と出力される.
+最初はgrandfatherで記述されているfatherの述語を検索するとfather(X,Y)となっているので、
+fatherを見に行くとparentとmaleがある.parentの述語集にparent(pam,bob)が書かれているので、
+pamがmaleの条件に当てはまるかを調べる
+条件に当てはまらないのでredoし次のparentの組（parent(tom,bob)）を選ぶとtomはmaleに当てはまるので
+fatherの条件を満たす.次にbobのparentが満たされている述語を調べるとpatが自然と条件に当てはまるので
+X = tom
+Y = patが選ばれる
+詳細
+   Call: (7) grandfather(_G2643, _G2644) ? creep
+   Call: (8) father(_G2643, _G2773) ? creep
+   Call: (9) parent(_G2643, _G2773) ? creep
+   Exit: (9) parent(pam, bob) ? creep
+   Call: (9) male(pam) ? creep
+   Fail: (9) male(pam) ? creep
+   Redo: (9) parent(_G2643, _G2773) ? creep
+   Exit: (9) parent(tom, bob) ? creep
+   Call: (9) male(tom) ? creep
+   Exit: (9) male(tom) ? creep
+   Exit: (8) father(tom, bob) ? creep
+   Call: (8) parent(bob, _G2644) ? creep
+   Exit: (8) parent(bob, pat) ? creep
+   Exit: (7) grandfather(tom, pat) ? creep
+X = tom,
+Y = pat 

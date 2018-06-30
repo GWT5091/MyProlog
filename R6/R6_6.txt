@@ -1,0 +1,25 @@
+r6 練習問題(2)の論理的意味と動作についてレポート
+
+//dataベース省略
+isTerm(X) :- alphabet(X).
+isTerm(X) :- digit(X).
+isTerm(f(X)) :- isTerm(X).
+isTerm(g(X,Y)):- isTerm(X), isTerm(Y).
+
+(i)論理的意味
+ isTermのX が alphabetに属している ならば 信　である．
+ isTermのX が digitに属している ならば 真　である．
+ isTermのf()中のXが 項 ならば 真　である．
+ isTermのg()中のXが 項かつYが項 ならば 真　である．
+(ii)動作
+　1:isTerm(g(0,f(b))). を実行すると，ボディゴールであるisTerm(g(X,Y))が呼ばれ，isTerm(X), isTerm(Y)を実行する．
+　2:このときXは0に、Yはf(b)に単一化される
+　3:isTerm(0)を実行するとdigit(0)があるのでこのゴールは成功する
+　4:isTerm(f(b))を実行すると、ボディーゴールであるisTerm(f(X))が呼ばれ、isTerm(X)を実行する
+　5:このときXはbに単一化される
+　6:isTerm(b)を実行するとalphabet(b)があるのでこのゴールは成功する
+　7:したがってすべてのボディゴールが成功するので，(1:)のisTerm(X), isTerm(Y)は成功する
+　8:isTerm(g(0,f(b)))は真である
+（iii）考察・乾燥
+正しくできたが練習問題１と前回のリストの考え方がなければ
+できなかっただろう

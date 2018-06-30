@@ -1,0 +1,27 @@
+ 練習問題3の論理的意味と動作についてレポート
+
+fruit(banana).
+fruit(apple).
+fruit(grape).
+
+contained([]).
+contained([X|Y]) :- fruit(X), contained(Y).
+
+(i)論理的意味
+ bananaはfruitである
+ appleはfruitである
+ grapeはfruitである
+ リスト(containedの中の[X|Y])がfruitかつ残りのリストもfruitに属しているならば真である
+(ii)動作
+  contained([apple,banana]).を実行するとヘッドであるappleとXが単一化され、残りのテールリストはYに単一化される
+  fruit(apple)があるのでゴールが成功する
+  テールリストがcontainedに入り再帰的に呼び出される
+  contained([banana]).を実行するとヘッドであるbananaとXが単一化され、残りのテールリストはYに単一化される
+  fruit(banana)があるのでゴールが成功する
+  テールリストがcontainedに入り再帰的に呼び出される
+  contained([]).を実行すると既にあるので成功する
+  したがってすべてのボディゴールが成功するので，contained([apple,banana]).は成功する
+ (iii)感想
+ 正しくできた
+ リストの復讐だった
+　
